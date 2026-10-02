@@ -1,0 +1,664 @@
+:root {
+    font-family: Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+    color: #2c332f;
+    background: #f7f9f7;
+
+    --sage: #a0c1b9;
+    --sage-dark: #6f8f86;
+    --sage-deep: #4f6f66;
+    --sage-soft: #dce9e5;
+
+    --text: #2c332f;
+    --text-soft: #6f7873;
+
+    --background: #f7f9f7;
+    --white: rgba(255, 255, 255, 0.78);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    overflow: hidden;
+
+    background: radial-gradient(
+            circle at 15% 15%,
+            rgba(220, 233, 229, 0.9) 0%,
+            transparent 34%
+    ),
+    radial-gradient(
+            circle at 85% 80%,
+            rgba(160, 193, 185, 0.35) 0%,
+            transparent 35%
+    ),
+    #f7f9f7;
+}
+
+.screen {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: min(100%, 560px);
+
+    padding: 46px;
+
+    text-align: center;
+
+    background: var(--white);
+
+    border: 1px solid rgba(160, 193, 185, 0.4);
+    border-radius: 32px;
+
+    box-shadow: 0 24px 70px rgba(71, 96, 89, 0.12);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.hero-card {
+    width: min(100%, 600px);
+}
+
+.wide-card {
+    width: min(100%, 860px);
+}
+
+.question-card {
+    width: min(100%, 700px);
+}
+
+.success-card {
+    width: min(100%, 600px);
+
+    animation: successIn 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+
+    font-size: clamp(2.6rem, 7vw, 4.8rem);
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+}
+
+h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+}
+
+p {
+    margin-bottom: 18px;
+
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.lead {
+    font-size: 1.25rem;
+}
+
+.muted {
+    color: var(--text-soft);
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: var(--sage-dark);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+}
+
+.highlight {
+    margin: 28px 0;
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: var(--sage-soft);
+
+    color: var(--text);
+}
+
+.emoji {
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-size: 3rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-button,
+.yes-button {
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 15px 26px;
+
+    background: var(--sage);
+    color: #20302b;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(79, 111, 102, 0.15);
+
+    transition: transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.primary-button {
+    margin-top: 14px;
+}
+
+.primary-button:hover,
+.yes-button:hover {
+    transform: translateY(-2px);
+
+    background: #93b7ae;
+
+    box-shadow: 0 14px 32px rgba(79, 111, 102, 0.22);
+}
+
+.primary-button:active,
+.yes-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   DATE OPTIONS
+========================= */
+
+.options {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin: 32px 0;
+}
+
+.option-card {
+    min-height: 190px;
+
+    padding: 24px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 1px solid rgba(160, 193, 185, 0.45);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(71, 96, 89, 0.05);
+
+    transition: transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--sage);
+
+    box-shadow: 0 15px 30px rgba(71, 96, 89, 0.1);
+}
+
+.option-card.selected {
+    border-color: var(--sage-dark);
+
+    background: var(--sage-soft);
+
+    box-shadow: 0 14px 30px rgba(79, 111, 102, 0.15);
+
+    transform: translateY(-3px);
+}
+
+.option-emoji {
+    margin-bottom: 2px;
+
+    font-size: 2.3rem;
+}
+
+.option-card strong {
+    font-size: 1rem;
+
+    color: var(--text);
+}
+
+.option-card small {
+    max-width: 220px;
+
+    color: var(--text-soft);
+
+    line-height: 1.45;
+}
+
+/* =========================
+   FINAL QUESTION
+========================= */
+
+.heart {
+    margin-bottom: 10px;
+
+    color: var(--sage-dark);
+
+    font-family: Georgia, serif;
+    font-size: 4rem;
+
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+.date-question {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.answer-buttons {
+    position: relative;
+
+    height: 100px;
+
+    margin-top: 32px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.yes-button {
+    min-width: 135px;
+
+    font-size: 1.1rem;
+}
+
+.no-button {
+    min-width: 105px;
+
+    padding: 14px 24px;
+
+    border: 1px solid rgba(160, 193, 185, 0.8);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: var(--text-soft);
+
+    cursor: pointer;
+
+    transition: transform 140ms ease,
+    background 140ms ease;
+}
+
+.no-button:hover {
+    background: var(--sage-soft);
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success-icon {
+    width: 68px;
+    height: 68px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: var(--sage);
+
+    color: #20302b;
+
+    font-size: 1.9rem;
+    font-weight: 800;
+
+    box-shadow: 0 10px 30px rgba(79, 111, 102, 0.2);
+}
+
+.mini-note {
+    margin-top: 30px;
+
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    background: var(--sage-soft);
+
+    color: var(--text-soft);
+
+    font-size: 0.82rem;
+}
+
+.final-line {
+    margin-top: 36px;
+
+    color: var(--sage-deep);
+
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+/* =========================
+   BACKGROUND BLOBS
+========================= */
+
+.blob {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(65px);
+
+    opacity: 0.38;
+
+    pointer-events: none;
+}
+
+.blob-one {
+    top: -180px;
+    left: -150px;
+
+    background: var(--sage);
+}
+
+.blob-two {
+    right: -170px;
+    bottom: -180px;
+
+    background: var(--sage-soft);
+}
+
+/* =========================
+   TRANSITIONS
+========================= */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 300ms ease,
+    transform 300ms ease;
+}
+
+.fade-enter-from {
+    opacity: 0;
+
+    transform: translateY(12px);
+}
+
+.fade-leave-to {
+    opacity: 0;
+
+    transform: translateY(-8px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes successIn {
+    from {
+        opacity: 0;
+
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+    .screen {
+        padding: 18px;
+    }
+
+    .card {
+        padding: 34px 23px;
+
+        border-radius: 26px;
+    }
+
+    h1 {
+        font-size: clamp(2.35rem, 12vw, 3.7rem);
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 9vw, 2.7rem);
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .option-card {
+        min-height: unset;
+
+        padding: 20px;
+    }
+
+    .answer-buttons {
+        gap: 12px;
+
+        height: 115px;
+    }
+
+    .yes-button {
+        min-width: 120px;
+    }
+
+    .no-button {
+        min-width: 90px;
+    }
+
+    .blob {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+    .screen {
+        padding: 14px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .lead {
+        font-size: 1.12rem;
+    }
+
+    .primary-button,
+    .yes-button,
+    .no-button {
+        padding: 14px 21px;
+    }
+
+    /* =========================
+       SHARE BUTTON
+    ========================= */
+    .share-button {
+        margin-top: 22px;
+
+        padding: 14px 24px;
+
+        border: 1px solid rgba(160, 193, 185, 0.75);
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--sage-deep);
+
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+
+        cursor: pointer;
+
+        box-shadow: 0 10px 28px rgba(79, 111, 102, 0.1);
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        transition: transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .share-button:hover {
+        transform: translateY(-2px);
+
+        background: var(--sage-soft);
+        border-color: var(--sage);
+
+        box-shadow: 0 14px 32px rgba(79, 111, 102, 0.16);
+    }
+
+    .share-button:active {
+        transform: translateY(0) scale(0.98);
+    }
+
+    .share-button:focus-visible {
+        outline: 3px solid rgba(160, 193, 185, 0.35);
+        outline-offset: 4px;
+    }
+
+    .success-wrapper {
+        width: min(100%, 600px);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .share-button {
+        margin-top: 22px;
+    }
+}
